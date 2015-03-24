@@ -2,6 +2,7 @@ class Cell
   attr_reader :content
 
   def receive_hit
+    fail "Already Hit!!" if hit?
     @hit = true
   end  
 

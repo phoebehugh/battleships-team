@@ -3,14 +3,19 @@ require 'cell'
 describe Cell do
   let(:cell) { Cell.new }
 
+  it "is not hit when created" do
+    expect(cell).not_to be_hit
+  end
+
   it "can be hit" do
     cell.receive_hit
     expect(cell.hit?).to eq true
   end
 
-	it "is not hit when created" do
-    expect(cell).not_to be_hit
-	end
+  it "cannot be hit if already hit" do
+    cell.receive_hit
+    expect{ cell.receive_hit }.to raise_error "Already Hit!!"
+  end
 
   it "can have content" do
     cell.receive_content(:content)
