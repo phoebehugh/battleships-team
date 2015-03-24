@@ -9,6 +9,7 @@ class Water
   end
 
   def hit?
+    @hit
   end
 
 end
